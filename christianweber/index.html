@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>CHRISTIANWEBER, Herrenmode aus Wien, Made in Italy</title>
 <meta name="description" content="Redesign Demo, Herrenmode aus Wien.">
@@ -13,9 +14,10 @@
 @font-face{font-family:"Libre Franklin";src:url(fonts/LibreFranklin-800.ttf) format("truetype");font-weight:800;font-style:normal;font-display:swap}
 :root{--ink:#0a0a0a;--paper:#fff;--soft:#f4f4f1;--line:#e8e8e8;--mute:#8f8f8f;--f:"Libre Franklin","Helvetica Neue",Arial,sans-serif;--pad:clamp(20px,4vw,60px);--ease:cubic-bezier(.2,.7,0,1)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%;overflow-x:clip}
-body{background:var(--paper);color:var(--ink);font-family:var(--f);font-size:17px;line-height:1.55;overflow-x:clip;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--f);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 img{display:block;max-width:100%}
+#view,footer{overflow-x:clip}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit}
 ::selection{background:var(--ink);color:var(--paper)}
@@ -25,7 +27,6 @@ button{font:inherit;color:inherit}
 a:hover>.ar,button:hover>.ar{transform:translateX(6px)}
 
 /* paper grain */
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:900;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 
 /* preloader + page curtain */
 .pre{position:fixed;inset:0;z-index:2000;background:var(--ink);color:#fff;display:grid;place-items:center;transition:transform 1s var(--ease)}
@@ -48,7 +49,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:900;op
 
 /* header */
 .bar{position:fixed;left:0;top:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--ink);z-index:1100}
-header{position:fixed;inset:0 0 auto 0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:16px var(--pad);color:var(--ink);background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:transform .5s var(--ease),background .4s,color .4s}header.hide{transform:translateY(-102%)}body.menu-open header{background:transparent;color:#fff;border-color:transparent;transform:none}body.menu-open header .logo{filter:invert(1)}
+header{position:fixed;inset:0 0 auto 0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:16px var(--pad);color:var(--ink);background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);transition:transform .5s var(--ease),background .4s,color .4s}header.hide{transform:translateY(-102%)}body.menu-open header{background:transparent;color:#fff;border-color:transparent;transform:none}body.menu-open header .logo{filter:invert(1)}
 header>*{pointer-events:auto}
 header .logo{height:18px;width:auto;transition:filter .3s}
 header nav{display:flex;gap:clamp(14px,2.4vw,34px);font-size:14px;letter-spacing:.01em;align-items:center}
@@ -89,7 +90,7 @@ body.menu-open .menu li a{transform:none}
 
 /* ====== hero: wardrobe ====== */
 #hero{position:relative;height:calc((var(--T) + 1) * 130vh)}
-.stage{position:sticky;top:0;height:100vh;height:100lvh;overflow:hidden;perspective:780px;perspective-origin:50% 44%;background:radial-gradient(ellipse 60% 55% at var(--mx,50%) var(--my,46%),#fff 0%,#f6f6f3 60%,#ecece8 100%)}
+.stage{position:absolute;left:0;right:0;top:0;height:100vh;height:100lvh;overflow:hidden;perspective:780px;perspective-origin:50% 44%;background:radial-gradient(ellipse 60% 55% at var(--mx,50%) var(--my,46%),#fff 0%,#f6f6f3 60%,#ecece8 100%)}
 .world{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform;pointer-events:none}
 .layer{position:absolute;left:50%;top:50%;will-change:transform,opacity;opacity:0;visibility:hidden}
 .ghost{font-size:clamp(130px,27vw,440px);line-height:.8;letter-spacing:-.045em;white-space:nowrap;color:rgba(10,10,10,.055);user-select:none}
@@ -130,7 +131,7 @@ body.menu-open .menu li a{transform:none}
 .tape div{position:absolute;left:0;top:0;height:100%;width:9000px;will-change:transform;background:repeating-linear-gradient(90deg,#222 0 1px,transparent 1px 10px) 0 100%/100% 8px no-repeat,repeating-linear-gradient(90deg,#222 0 1px,transparent 1px 50px) 0 100%/100% 14px no-repeat,repeating-linear-gradient(90deg,#222 0 2px,transparent 2px 100px) 0 100%/100% 20px no-repeat}
 .tape span{position:absolute;top:4px;font-size:14px;letter-spacing:.01em;color:#222;transform:translateX(5px)}
 .tape em{position:absolute;top:3px;font-style:normal;font-size:14px;letter-spacing:.01em;color:#9a917a}
-@media(max-width:760px){.knobs{display:none}.hud{padding-bottom:calc(26px + 56px)}.cap .n{font-size:20px}.count{font-size:16px}.cap .m{font-size:14px}}
+@media(max-width:760px){.knobs{display:none}.hud{padding-bottom:26px}.cap .n{font-size:20px}.count{font-size:16px}.cap .m{font-size:14px}}
 
 /* ====== home sections ====== */
 .sec{padding:clamp(64px,8vw,120px) var(--pad)}
@@ -152,7 +153,7 @@ body.menu-open .menu li a{transform:none}
 .marq span:nth-child(2n){color:var(--ink);font-weight:800}
 
 .path{position:relative;height:260vh}
-.pin2{position:sticky;top:0;height:100vh;height:100lvh;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:var(--pad);padding:72px var(--pad) 0;overflow:hidden}
+.pin2{position:absolute;left:0;right:0;top:0;height:100vh;height:100lvh;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:var(--pad);padding:72px var(--pad) 0;overflow:hidden}
 .st{white-space:nowrap;font-size:clamp(32px,6.2vw,108px);line-height:.96;letter-spacing:-.045em;opacity:.1;transition:opacity .6s}
 .st.on{opacity:1}
 .st:nth-child(2){padding-left:clamp(16px,6vw,100px)}.st:nth-child(3){padding-left:clamp(8px,3vw,50px)}.st:nth-child(4){padding-left:clamp(16px,6vw,100px)}
@@ -180,7 +181,7 @@ body.menu-open .menu li a{transform:none}
 @media(max-width:760px){.fr.a,.fr.b,.fr.c,.look .quote{grid-column:1/-1;margin-top:0}}
 
 .prin{position:relative;height:600vh;background:var(--ink);color:#fff}
-.pin3{position:sticky;top:0;height:100vh;height:100lvh;overflow:hidden;padding:0 var(--pad);display:flex;flex-direction:column;justify-content:center}
+.pin3{position:absolute;left:0;right:0;top:0;height:100vh;height:100lvh;overflow:hidden;padding:0 var(--pad);display:flex;flex-direction:column;justify-content:center}
 .pk{display:flex;gap:18px;align-items:baseline;margin-bottom:5vh}
 .pk span:first-child{font-size:clamp(70px,14vw,230px);line-height:.8;letter-spacing:-.05em;color:#fff;font-weight:800}
 .pk span:last-child{font-size:14px;letter-spacing:.01em;color:#8f8f8f}
@@ -199,7 +200,7 @@ body.menu-open .menu li a{transform:none}
 .ptitle{position:absolute;right:var(--pad);top:90px;font-size:14px;letter-spacing:.01em;color:#8f8f8f}
 
 .msec{position:relative;height:300vh;background:var(--soft)}
-.msec .pin{position:sticky;top:0;height:100vh;height:100lvh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.msec .pin{position:absolute;left:0;right:0;top:0;height:100vh;height:100lvh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
 .msec .ttl{padding:0 var(--pad);display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4vh;gap:20px}
 .msec h2{font-weight:600;font-size:clamp(34px,5vw,84px);letter-spacing:-.035em;line-height:1}
 .msec .hint{font-size:14px;letter-spacing:.01em;color:var(--mute);white-space:nowrap}
@@ -401,6 +402,7 @@ footer .base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 @media(max-width:860px){footer .fg{grid-template-columns:1fr 1fr}footer .fg>:first-child{grid-column:1/-1}}
 
 @media (prefers-reduced-motion:reduce){
+  .pinfix,.pinend{position:static!important;height:auto!important}
   .doors,.inner{display:none}
   #hero{height:auto}.stage{position:static;height:auto;perspective:none;padding:120px var(--pad) 60px}
   .world{position:static;display:flex;flex-wrap:wrap;gap:24px;justify-content:center}
@@ -484,6 +486,9 @@ header nav{font-size:15px}.tape span{font-size:10px}.caps{font-weight:500}.btn{f
 .door .hd{position:absolute;top:79%;height:15%;width:6px;border-radius:3px;background:linear-gradient(90deg,#2f2f2f,#0a0a0a 60%,#1e1e1e);transform:translateZ(14px);backface-visibility:hidden;box-shadow:-4px 10px 14px rgba(0,0,0,.22)}
 .door.l .hd{right:22px}.door.r .hd{left:22px}
 @media(max-width:760px){.doors{--w:88vw;--h:66vh;top:calc(50% + 26px)}.door .hd{top:73%;height:14%;width:4px}.door.l .hd{right:12px}.door.r .hd{left:12px}.dh h1{font-size:calc(var(--w)*.15)}}
+.pinfix{position:fixed!important;top:0!important;bottom:0!important;height:auto!important;z-index:1}
+.pinend{top:auto!important;bottom:0!important}
+.doors .edge{opacity:calc(var(--o)*40)}
 </style>
 </head>
 <body>
@@ -519,7 +524,7 @@ header nav{font-size:15px}.tape span{font-size:10px}.caps{font-weight:500}.btn{f
     <div><h5>Kontakt</h5><a href="#/haendler">Händler</a><a href="#/kontakt">Atelier Termin</a><a href="mailto:christian@christianweber.at">christian@christianweber.at</a><p id="clock">Wien</p></div>
   </div>
   <img class="mark" src="img/logo-wordmark.png" alt="CHRISTIANWEBER">
-  <div class="base"><span>&copy; 2026 CHRISTIANWEBER, vormals Weber+Weber</span><span>Designed in Vienna. Made in Italy.</span><span><a href="#/impressum">Impressum</a> &nbsp; <a href="#/datenschutz">Datenschutz</a> &nbsp; Redesign Demo</span></div>
+  <div class="base"><span>&copy; 2026 CHRISTIANWEBER, vormals Weber+Weber</span><span>Designed in Vienna. Made in Italy.</span><span><a href="#/impressum">Impressum</a> &nbsp; <a href="#/datenschutz">Datenschutz</a> &nbsp; Redesign Demo, Build 08.11.2026 / 04</span></div>
 </footer>
 
 <script src="texte.js"></script>
@@ -816,6 +821,8 @@ I.home=()=>{
   let W,H,mobile,hb,showY,S0,S1,RD,ctaY,shown=-2;
   function layout(){
     W=stage.clientWidth;H=stage.clientHeight;mobile=W<760;
+    {const ev=v=>Math.round(v/2)*2,dw=mobile?W*.88:Math.min(W*.8,1180),dh=mobile?H*.66:Math.min(H*.72,740),dk=ev(clamp(W*.011,8,16));
+     doors.style.setProperty('--w',ev(dw)+'px');doors.style.setProperty('--h',ev(dh)+'px');doors.style.setProperty('--k',dk+'px')}
     hb=Math.round(mobile?H*.4:H*.58);showY=mobile?H*.1:H*.07;
     stage.style.setProperty('--hb',hb+'px');
     S0=[];S1=[];RD=[];
@@ -968,11 +975,23 @@ async function route(first){
 addEventListener('hashchange',()=>route(false));
 
 /* global loop */
+const PINS=[['#hero','#stage'],['#weg','.pin2'],['#grund','.pin3'],['#mat','.pin']];
+const noMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function pinFrame(){
+  if(noMotion)return;
+  const vh=innerHeight;
+  for(const [a,b] of PINS){const sec=document.querySelector(a);if(!sec)continue;const pin=sec.querySelector(b);if(!pin)continue;
+    const r=sec.getBoundingClientRect();const st=(r.top<=0&&r.bottom>=vh)?'fix':(r.top>0?'start':'end');
+    if(pin._st===st&&pin._vh===vh)continue;pin._st=st;pin._vh=vh;
+    pin.classList.toggle('pinfix',st==='fix');pin.classList.toggle('pinend',st==='end');
+    pin.style.height=st==='fix'?'':vh+'px';}
+}
+
 let lastHY=0;
 function loop(){
   const y=scrollY;state.vel+=((y-state.lastY)-state.vel)*.18;state.vel=clamp(state.vel,-40,40);state.lastY=y;
   $('#bar').style.transform=`scaleX(${clamp(y/Math.max(1,document.documentElement.scrollHeight-innerHeight))})`;
-  state.tick&&state.tick();parallax();cursor();
+  pinFrame();state.tick&&state.tick();parallax();cursor();
   const hd=$('header');if(y>160&&y>lastHY+3&&!document.body.classList.contains('menu-open'))hd.classList.add('hide');else if(y<lastHY-3||y<160)hd.classList.remove('hide');lastHY=y;
   requestAnimationFrame(loop);
 }
